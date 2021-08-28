@@ -47,7 +47,10 @@ type ReferrerInfo = {
 
 type MiscellaneousInfo = {
   timestamp: Date;
+  type: string;
   platformType: string;
+  mobileFeatureArea: string;
+  locationScene: string;
 }
 
 type BaseTelemetryPayload = 
@@ -60,76 +63,108 @@ type BaseTelemetryPayload =
 
 const columns: DataTableColumn<BaseTelemetryPayload>[] = [
   {
-    key: 'appName'
+    key: 'timestamp'
   },
   {
-    key: 'appVersion'
+    key: 'type'
+  },
+  {
+    key: 'locationScene'
+  },
+  {
+    key: 'mobileFeatureArea'
+  },
+  {
+    key: 'platformType',
+    visible: false
+  },
+  {
+    key: 'appName',
+    visible: false
+  },
+  {
+    key: 'appVersion',
+    visible: false
   },
   {
     key: 'mobilePlatformType'
   },
   {
-    key: 'mobileOSVersion'
+    key: 'mobileOSVersion',
+    visible: false
+
   },
   {
-    key: 'mobileDeviceYearClass'
+    key: 'mobileDeviceYearClass',
+    visible: false
   },
   {
-    key: 'mobileDeviceName'
+    key: 'mobileDeviceName',
+    visible: false
   },
   {
-    key: 'mobileDeviceManufacturer'
+    key: 'mobileDeviceManufacturer',
+    visible: false
   },
   {
-    key: 'mobileNetworkType'
+    key: 'mobileNetworkType',
+    visible: false
   },
   {
-    key: 'psnAccountId'
+    key: 'psnAccountId',
+    visible: false
   },
   {
-    key: 'psnAccountLanguage'
+    key: 'psnAccountLanguage',
+    visible: false
   },
   {
-    key: 'psnAccountRegion'
+    key: 'psnAccountRegion',
+    visible: false
   },
   {
-    key: 'hashedPsnAccountId'
+    key: 'hashedPsnAccountId',
+    visible: false
   },
   {
-    key: 'signedIn'
+    key: 'signedIn',
+    visible: false
   },
   {
-    key: 'loggedIn'
+    key: 'loggedIn',
+    visible: false
   },
   {
-    key: 'platformPrivacyWs1'
+    key: 'platformPrivacyWs1',
+    visible: false
   },
   {
-    key: 'ciiSampling'
+    key: 'ciiSampling',
+    visible: false
   },
   {
-    key: 'aaSampling'
+    key: 'aaSampling',
+    visible: false
   },
   {
-    key: 'sbahnSampling'
+    key: 'sbahnSampling',
+    visible: false
   },
   {
-    key: 'referrerApplicationName'
+    key: 'referrerApplicationName',
+    visible: false
   },
   {
-    key: 'referrerScene'
+    key: 'referrerScene',
+    visible: false
   },
   {
-    key: 'referringInternalCampaignId'
+    key: 'referringInternalCampaignId',
+    visible: false
   },
   {
-    key: 'referringExternalCampaignId'
-  },
-  {
-    key: 'timestamp'
-  },
-  {
-    key: 'platformType'
+    key: 'referringExternalCampaignId',
+    visible: false
   }
 ];
 

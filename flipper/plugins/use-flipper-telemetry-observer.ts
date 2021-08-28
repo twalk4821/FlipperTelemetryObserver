@@ -48,6 +48,9 @@ type ReferrerInfo = {
 type MiscellaneousInfo = {
   timestamp: Date;
   platformType: string;
+  type: string;
+  mobileFeatureArea: string;
+  locationScene: string;
 }
 
 type BaseTelemetryPayload = 
@@ -82,7 +85,10 @@ const getBaseTelemetryPayload: (telemetryEvent: any) => BaseTelemetryPayload = t
   referringInternalCampaignId: telemetryEvent.referringInternalCampaignId,
   referringExternalCampaignId: telemetryEvent.referringExternalCampaignId,
   timestamp: telemetryEvent.timestamp,
-  platformType: telemetryEvent.platformType
+  type: telemetryEvent.type,
+  platformType: telemetryEvent.platformType,
+  mobileFeatureArea: telemetryEvent.mobileFeatureArea,
+  locationScene: telemetryEvent.locationScene
 });
 
 const useFlipperClientConnection = () => {
