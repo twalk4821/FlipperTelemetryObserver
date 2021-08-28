@@ -46,7 +46,7 @@ type ReferrerInfo = {
 }
 
 type MiscellaneousInfo = {
-  timestamp: Date;
+  timestamp: string;
   type: string;
   platformType: string;
   mobileFeatureArea: string;

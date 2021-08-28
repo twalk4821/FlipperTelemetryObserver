@@ -46,7 +46,7 @@ type ReferrerInfo = {
 }
 
 type MiscellaneousInfo = {
-  timestamp: Date;
+  timestamp: string;
   platformType: string;
   type: string;
   mobileFeatureArea: string;
@@ -60,6 +60,16 @@ type BaseTelemetryPayload =
   ReferrerInfo & 
   SamplingInfo & 
   MiscellaneousInfo
+
+const getFormattedTimestamp: (date: Date) => string = date => {
+  if (!date) return '';
+  let hours = date.getHours();
+  hours = hours > 12 ? hours - 12 : hours;
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+  const milliseconds = date.getMilliseconds();
+  return `${hours}:${minutes}:${seconds}.${milliseconds}`;
+}
 
 const getBaseTelemetryPayload: (telemetryEvent: any) => BaseTelemetryPayload = telemetryEvent => ({
   appName: telemetryEvent.appName,
@@ -84,7 +94,7 @@ const getBaseTelemetryPayload: (telemetryEvent: any) => BaseTelemetryPayload = t
   referrerScene: telemetryEvent.referrerScene,
   referringInternalCampaignId: telemetryEvent.referringInternalCampaignId,
   referringExternalCampaignId: telemetryEvent.referringExternalCampaignId,
-  timestamp: telemetryEvent.timestamp,
+  timestamp: getFormattedTimestamp(telemetryEvent.timestamp),
   type: telemetryEvent.type,
   platformType: telemetryEvent.platformType,
   mobileFeatureArea: telemetryEvent.mobileFeatureArea,
